@@ -189,6 +189,23 @@ def re_encode_for_nerd_font(font: fontforge.font) -> None:
             )
 
 
+def fix_omega_naming_issue(font: fontforge.font) -> None:
+    """
+    FontForge에서 발생하는 Omega(U+03A9) 글리프 이름 관련 경고를 해결합니다.
+    "The glyph named Omega is mapped to U+03A9. But its name indicates it should be mapped to U+2126."
+    이 문제는 FontForge가 'Omega'라는 이름을 U+2126(Ohm)에 대한 이름으로 기대하기 때문에 발생합니다.
+    해결책으로 U+03A9에 있는 글리프의 이름을 'Omega'에서 'uni03A9'로 변경합니다.
+    """
+    omega_codepoint = 0x03A9
+    if omega_codepoint in font:
+        glyph = font[omega_codepoint]
+        if glyph.glyphname == "Omega":
+            glyph.glyphname = "uni03A9"
+            print(
+                f"[INFO] U+{omega_codepoint:04X} 글리프의 이름을 'uni03A9'로 변경하여 FontForge 경고를 우회합니다."
+            )
+
+
 def generate_font_files(font: fontforge.font, style: str) -> None:
     """최종 TTF 및 WOFF2 폰트 파일을 생성하고 내보냅니다."""
     output_filename_base = f"{_get_cleaned_name(font.familyname)}-{style}"
@@ -272,6 +289,7 @@ def process_font_file(
     style = get_font_style(en_font, font_filename)
     update_font_metadata(en_font, style, old_name=OLD_FONT_NAME, new_name=NEW_FONT_NAME)
 
+    fix_omega_naming_issue(en_font)
     generate_font_files(en_font, style)
 
 

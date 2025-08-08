@@ -8,8 +8,8 @@ ASSETS_PATH: str = "assets"
 # 최종 폰트 파일이 저장될 디렉터리입니다.
 BUILT_FONTS_PATH: str = os.path.join(ASSETS_PATH, "built_fonts")
 # 폰트 이름 설정
-OLD_FONT_NAME: str = "Fira Code"
-NEW_FONT_NAME: str = "FiraD2"
+OLD_FONT_NAME: str = "Meslo"
+NEW_FONT_NAME: str = "MeD2"
 
 # =======================================
 #  폰트 디렉터리 경로 구성

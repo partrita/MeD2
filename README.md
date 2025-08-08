@@ -1,34 +1,21 @@
-# FiraD2 - 한글을 지원하는 FiraCode
+# MeD2 - 한글을 지원하는 Meslo
 
-[English](README_en.md) | [한국어](README_ko.md)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/partrita/MeD2?style=flat-square)
+![License](https://img.shields.io/github/license/partrita/MeD2?style=flat-square)
+![Build Status](https://img.shields.io/github/actions/workflow/status/partrita/MeD2/release-font.yml?style=flat-square)
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/partrita/FiraD2?style=flat-square)
-![License](https://img.shields.io/github/license/partrita/FiraD2?style=flat-square)
-![Build Status](https://img.shields.io/github/actions/workflow/status/partrita/FiraD2/release-font.yml?style=flat-square)
-
-**FiraD2**는 FiraCode의 합자(ligature) 및 코딩 기능과 D2Coding의 뛰어난 한글 지원을 결합한 프로그래밍 글꼴입니다. 이 글꼴은 영문과 한글 텍스트가 모두 포함된 코드에 최적의 가독성을 제공합니다.
+**MeD2**는 Meslo와 D2Coding의 뛰어난 한글 지원을 결합한 프로그래밍 글꼴입니다. 이 글꼴은 영문과 한글 텍스트가 모두 포함된 코드에 최적의 가독성을 제공합니다.
 
 ## ✨ 특징
 
 - **완벽한 한글 지원**: D2Coding의 한글 글리프(U+3131-U+318E, U+AC00-U+D7A3)를 포함합니다.
-- **프로그래밍 합자**: FiraCode의 인기 있는 프로그래밍 합자(→, >=, != 등)를 유지합니다.
 - **다양한 버전**: 일반 글꼴, 아이콘이 포함된 Nerd Font 버전, 웹 폰트를 제공합니다.
 - **최적화된 간격**: 가독성 향상을 위해 문자 너비를 세심하게 조정했습니다.
 - **크로스플랫폼**: Windows, macOS, Linux에서 작동합니다.
 
 ## 📥 다운로드
 
-[Releases](https://github.com/partrita/FiraD2/releases) 페이지에서 최신 글꼴을 다운로드하세요.
-
-### 글꼴 버전 설명
-
-| 파일 | 설명 | 추천 환경 |
-|------|-------------|----------|
-| `FiraD2-Regular.ttf` | 일반용 기본 글꼴 | 코드 에디터, IDE |
-| `FiraD2-Bold.ttf` | 굵은 글꼴 | 강조, 헤더 |
-| `FiraD2-Regular.woff2` | 웹 폰트 형식 | 웹 애플리케이션 |
-| `FiraD2NerdFont-Regular.ttf` | 프로그래밍 아이콘 포함 | 터미널, Vim/Neovim |
-| `FiraD2NerdFont-Bold.ttf` | 아이콘 포함 굵은 글꼴 | 터미널 강조 |
+[Releases](https://github.com/partrita/MeD2/releases) 페이지에서 최신 글꼴을 다운로드하세요.
 
 ### 설치
 
@@ -60,12 +47,12 @@
 
 ### 방법 1: Nix 사용 (권장)
 
-모든 종속성을 관리하며 FiraD2를 빌드하는 가장 쉬운 방법입니다:
+모든 종속성을 관리하며 MeD2를 빌드하는 가장 쉬운 방법입니다:
 
 ```bash
 # 저장소 복제
-git clone https://github.com/partrita/FiraD2.git
-cd FiraD2
+git clone https://github.com/partrita/MeD2.git
+cd MeD2
 
 # Nix 개발 환경 진입
 nix develop
@@ -83,12 +70,12 @@ exit
 
 ```bash
 # Docker 이미지 복제 및 빌드
-git clone https://github.com/partrita/FiraD2.git
-cd FiraD2
-docker build -t firad2 .
+git clone https://github.com/partrita/MeD2.git
+cd MeD2
+docker build -t fontbuild .
 
 # 대화형 컨테이너 실행
-docker run -it -v "$(pwd)":/app firad2
+docker run -it -v "$(pwd)":/app fontbuild
 
 # 컨테이너 내부: 글꼴 빌드
 python3 scripts/build.py build
@@ -116,18 +103,8 @@ pip3 install fontforge-python
 #### 수동 빌드 과정
 ```bash
 # 저장소 복제
-git clone https://github.com/partrita/FiraD2.git
-cd FiraD2
-
-# 필요한 글꼴 에셋 다운로드 (수동으로 진행해야 합니다)
-# - FiraCode: https://github.com/tonsky/FiraCode/releases
-# - D2Coding: https://github.com/naver/d2codingfont/releases
-# - FiraCode NerdFont: https://github.com/ryanoasis/nerd-fonts/releases
-
-# assets/ 디렉토리에 글꼴 압축 해제:
-# assets/en_font/        - FiraCode TTF 파일
-# assets/ko_font/        - D2Coding TTF 파일
-# assets/en_nerd_font/   - FiraCode NerdFont TTF 파일
+git clone https://github.com/partrita/MeD2.git
+cd MeD2
 
 # 글꼴 빌드
 python3 scripts/build.py build
@@ -150,7 +127,7 @@ python3 scripts/build.py clean
 `settings.json`에 다음을 추가하세요:
 ```json
 {
-    "editor.fontFamily": "FiraD2, Consolas, monospace",
+    "editor.fontFamily": "MeD2, Consolas, monospace",
     "editor.fontLigatures": true,
     "editor.fontSize": 14
 }
@@ -159,21 +136,21 @@ python3 scripts/build.py clean
 ### 터미널 (Nerd Font 버전 사용 시)
 ```bash
 # 글꼴 설치 확인
-fc-list | grep FiraD2
+fc-list | grep MeD2
 
-# 터미널이 FiraD2NerdFont-Regular를 사용하도록 설정
+# 터미널이 MeD2NerdFont-Regular를 사용하도록 설정
 ```
 
 ### 웹 프로젝트
 ```css
 @font-face {
-    font-family: 'FiraD2';
-    src: url('path/to/FiraD2-Regular.woff2') format('woff2');
+    font-family: 'MeD2';
+    src: url('path/to/MeD2-Regular.woff2') format('woff2');
     font-display: swap;
 }
 
 code, pre {
-    font-family: 'FiraD2', 'Fira Code', monospace;
+    font-family: 'MeD2', 'Fira Code', monospace;
 }
 ```
 
@@ -199,9 +176,9 @@ code, pre {
 ## 📋 요구사항
 
 ### 소스 글꼴
-- **FiraCode**: 합자를 포함한 기본 프로그래밍 글꼴
+- **Meslo**: 합자를 포함한 기본 프로그래밍 글꼴
 - **D2Coding**: 한글 지원을 위한 한국어 코딩 글꼴
-- **FiraCode Nerd Font**: 아이콘이 추가된 버전
+- **Meslo Nerd Font**: 아이콘이 추가된 버전
 
 ### 빌드 종속성
 - Python 3.7+
@@ -213,19 +190,20 @@ code, pre {
 - 일부 터미널 에뮬레이터에서 합자가 올바르게 표시되지 않을 수 있습니다.
 - 웹 폰트 로딩 시 적절한 CORS 헤더가 필요할 수 있습니다.
 - 특정 애플리케이션에서는 글꼴 메트릭 조정이 필요할 수 있습니다.
+- [ ] The glyph named Omega is mapped to U+03A9. But its name indicates it should be mapped to U+2126.
 
 ## 📄 라이선스
 
 이 프로젝트는 [SIL Open Font License 1.1](LICENSE)에 따라 라이선스가 부여됩니다.
 
 ### 글꼴 라이선스
-- **FiraCode**: SIL OFL 1.1
+- **Meslo**: SIL OFL 1.1
 - **D2Coding**: SIL OFL 1.1
 - **Nerd Fonts**: MIT License
 
 ## 🙏 감사
 
-- [FiraCode](https://github.com/tonsky/FiraCode) - Nikita Prokopov
+
 - [D2Coding](https://github.com/naver/d2codingfont) - NAVER
 - [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) 프로젝트
 
