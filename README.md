@@ -190,7 +190,12 @@ code, pre {
 - 일부 터미널 에뮬레이터에서 합자가 올바르게 표시되지 않을 수 있습니다.
 - 웹 폰트 로딩 시 적절한 CORS 헤더가 필요할 수 있습니다.
 - 특정 애플리케이션에서는 글꼴 메트릭 조정이 필요할 수 있습니다.
-- [ ] The glyph named Omega is mapped to U+03A9. But its name indicates it should be mapped to U+2126.
+- [x] The glyph named Omega is mapped to U+03A9. But its name indicates it should be mapped to U+2126.
+    - U+03A9 글리프의 이름을 'uni03A9'로 변경하여 FontForge 경고를 우회합니다.
+- The following table(s) in the font have been ignored by FontForge
+    - Ignoring 'LTSH' linear threshold table
+    - Ignoring 'VDMX' vertical device metrics table
+    - Ignoring 'hdmx' horizontal device metrics table
 
 ## 📄 라이선스
 
